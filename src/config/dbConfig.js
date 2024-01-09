@@ -1,4 +1,4 @@
-// src/config/db.js
+// src/config/dbConfig.js
 const { Sequelize } = require("sequelize");
 
 // Database configuration
