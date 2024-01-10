@@ -6,6 +6,7 @@ const editProfile = async (req, res) => {
     const userIdFromToken = req.user.userId;
     const userIdFromParams = parseInt(req.params.userId);
     const userEmailFromToken = req.user.email;
+    const { firstName, lastName, email, gender } = req.body;
 
     // Check if the requested profile ID matches the ID from the token or user is an admin
     if (
@@ -25,7 +26,12 @@ const editProfile = async (req, res) => {
     }
 
     // Update user profile
-    const updatedUser = await user.update(req.body);
+    const updatedUser = await user.update({
+      firstName,
+      lastName,
+      email,
+      gender,
+    });
 
     res
       .status(200)
