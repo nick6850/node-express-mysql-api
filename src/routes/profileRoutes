@@ -1,0 +1,11 @@
+// src/routes/profileRoutes.js
+const express = require("express");
+const profileController = require("../controllers/profileController");
+const router = express.Router();
+const authMiddleware = require("../middlewares/authMiddleware");
+
+// Routes
+router.put("/:userId", authMiddleware, profileController.editProfile);
+router.get("/:userId", authMiddleware, profileController.getProfileById);
+
+module.exports = router;
