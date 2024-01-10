@@ -5,8 +5,6 @@ const User = require("../models/User");
 const validateUserRegistration = async (req, res, next) => {
   const { firstName, lastName, email, password } = req.body;
 
-  console.log("Request Body:", req.body);
-
   // Check if email is valid
   if (!validator.isEmail(email)) {
     return res.status(400).json({ error: "Invalid email address format" });
